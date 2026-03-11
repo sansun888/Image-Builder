@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  PROFILE: generic
+  PROFILE: asus_rt-ac57u-v1
   UCI_CUSTOM_FILE: uci-custom
   PACKAGES_LIST_FILE: packages.list
   PACKAGES_FOLDER: packages
