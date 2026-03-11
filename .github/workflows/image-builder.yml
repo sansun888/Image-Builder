@@ -30,12 +30,12 @@ jobs:
 
     - name: Download and extract Image Builder
       run: |
-        wget -O /tmp/imagebuilder $DOWNLOAD_URL
-        sudo tar -C /tmp -I zstd -xvf /tmp/imagebuilder
+        wget -O /tmp/imagebuilder.tar.xz $DOWNLOAD_URL
+        sudo tar -C /tmp -I zstd -xvf /tmp/imagebuilder.tar.xz
 
     - name: Set Image Builder root directory
       run: |
-        ROOT_DIRECTORY=$(basename $DOWNLOAD_URL)
+        ROOT_DIRECTORY=$(basename $DOWNLOAD_URL .tar.xz)
         echo "ROOT_DIRECTORY=/tmp/$ROOT_DIRECTORY" >> $GITHUB_ENV
 
     - name: Modify .config file
