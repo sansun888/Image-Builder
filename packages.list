@@ -1,12 +1,12 @@
-luci-app-ddns_25.306.51720~a833d72_all.ipk
-luci-i18n-ddns-zh-cn_26.030.72349~cfd9f87_all.ipk
-luci-app-ttyd_25.306.51720~a833d72_all.ipk
-luci-i18n-ttyd-zh-cn_26.030.72349~cfd9f87_all.ipk
-luci-app-vlmcsd_25.306.51720~a833d72_all.ipk
-luci-i18n-vlmcsd-zh-cn_25.306.51720~a833d72_all.ipk
-luci-app-wol_25.306.51720~a833d72_all.ipk
-luci-i18n-wol-zh-cn_26.030.72349~cfd9f87_all.ipk
-luci-app-zerotier_25.306.51720~a833d72_all.ipk
-luci-i18n-zerotier-zh-cn_25.306.51720~a833d72_all.ipk
+luci-app-ddns
+luci-i18n-ddns-zh-cn
+luci-app-ttyd
+luci-i18n-ttyd-zh-cn
+luci-app-vlmcsd
+luci-i18n-vlmcsd-zh-cn
+luci-app-wol
+luci-i18n-wol-zh-cn
+luci-app-zerotier
+luci-i18n-zerotier-zh-cn
 
 bash
