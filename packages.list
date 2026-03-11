@@ -8,5 +8,7 @@ luci-app-wol
 luci-i18n-wol-zh-cn
 luci-app-zerotier
 luci-i18n-zerotier-zh-cn
-
+luci-app-my-dnshelper
+luci-i18n-my-dnshelper-zh-cn
+my-dnshelper
 bash
