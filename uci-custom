@@ -39,6 +39,7 @@ uci commit system
 # if [[ -n "$lan_ip_address" ]]; then
  # uci set network.lan.ipaddr="$lan_ip_address"
   uci set network.lan.ipaddr="192.168.2.3"
+  uci set lan_dhcp_enable="0"
   uci commit network
 # fi
  
