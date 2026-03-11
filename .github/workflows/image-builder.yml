@@ -30,7 +30,7 @@ jobs:
 
     - name: Download and extract Image Builder
       run: |
-        wget -O /tmp/imagebuilder .tar.zst $DOWNLOAD_URL
+        wget -O /tmp/imagebuilder $DOWNLOAD_URL
         sudo tar -C /tmp -I zstd -xvf /tmp/imagebuilder .tar.zst
 
     - name: Set Image Builder root directory
