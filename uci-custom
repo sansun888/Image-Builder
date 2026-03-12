@@ -28,10 +28,11 @@ logger -t custom-init "已配置 Android TV 时间服务器"
 if [[ -n "$root_password" ]]; then
   (echo "$root_password"; sleep 1; echo "$root_password") | passwd > /dev/null
 fi
- 
+ # Language
 uci set system.@system[0].timezone='CST-8'
 uci set system.@system[0].zonename='Asia/Shanghai'
 uci set system.@system[0].hostname='Ls'
+uci set system.@system[0].Lang='zh_CN'
 uci commit system
 
 # Configure LAN
@@ -39,7 +40,7 @@ uci commit system
 # if [[ -n "$lan_ip_address" ]]; then
  # uci set network.lan.ipaddr="$lan_ip_address"
   uci set network.lan.ipaddr="192.168.2.3"
-  uci set lan_dhcp_enable="0"
+  uci set network.lan.dhcp.enable="0"
   uci commit network
 # fi
  
