@@ -46,12 +46,10 @@ uci commit system
 # Configure WLAN
 # More options: https://openwrt.org/docs/guide-user/network/wifi/basic#wi-fi_interfaces
 # if [[ -n "$wlan_name" && -n "$wlan_password" && ${#wlan_password} -ge 8 ]]; then
-  uci set wireless.@wifi-device[0].disabled='0'
-  uci set wireless.@wifi-iface[0].disabled='0'
-  uci set wireless.@wifi-iface[0].encryption='psk2'
   uci set wireless.@wifi-iface[0].ssid="5G"
-  uci set wireless.@wifi-iface[0].key="none"
   uci set wireless.@wifi-iface[0].hide="1"
+  uci set wireless.@wifi-iface[1].ssid="5G"
+  uci set wireless.@wifi-iface[1].hide="1"
   uci commit wireless
 # fi
  
