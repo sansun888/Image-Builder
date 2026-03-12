@@ -11,8 +11,4 @@ luci-i18n-zerotier-zh-cn
 luci-app-my-dnshelper
 luci-i18n-my-dnshelper-zh-cn
 my-dnshelper
-wget-ssl
-adbyby
-luci-app-adbyby-plus
-luci-i18n-adbyby-plus-zh-cn
 bash
