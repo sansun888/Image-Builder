@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  PROFILE: asus_rt-ac57u-v1
+  PROFILE: redmi_ax6
   UCI_CUSTOM_FILE: uci-custom
   PACKAGES_LIST_FILE: packages.list
   PACKAGES_FOLDER: packages
@@ -48,7 +48,7 @@ jobs:
         sudo sed -i 's/^CONFIG_VMDK_IMAGES=y/# CONFIG_VMDK_IMAGES is not set/' $CONFIG_FILE
         sudo sed -i 's/^CONFIG_VHDX_IMAGES=y/# CONFIG_VHDX_IMAGES is not set/' $CONFIG_FILE
         # Reconfigure the rootfs partition size (for x86 build only)
-        if [ -n "${{ env.ROOTFS_PARTSIZE }}" ] && [ "${{ env.PROFILE }}" = "asus_rt-ac57u-v1" ]; then
+        if [ -n "${{ env.ROOTFS_PARTSIZE }}" ] && [ "${{ env.PROFILE }}" = "redmi_ax6" ]; then
           sudo sed -i 's/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=${{ env.ROOTFS_PARTSIZE }}/g' $CONFIG_FILE
         fi
 
