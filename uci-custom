@@ -1,13 +1,6 @@
 # Beware! This script will be in /rom/etc/uci-defaults/ as part of the image.
 # Uncomment lines to apply:
-#
-logger -t custom-init "开始执行首次启动配置"
- # wlan_name="5G"
-# wlan_password="12345678"
-#
-# root_password=""
-# lan_ip_address="192.168.2.3"
-#
+
 # pppoe_username="123"
 # pppoe_password="456"
 # wan_device="eth0"
@@ -18,25 +11,11 @@ logger -t custom-init "开始执行首次启动配置"
 # log potential errors
 exec >/tmp/setup.log 2>&1
 
-# 2. 解决 Android TV 网络连接问题
-# uci add dhcp domain
-# uci set "dhcp.@domain[-1].name=time.android.com"
-# uci set "dhcp.@domain[-1].ip=203.107.6.88"
-# uci commit dhcp
-# logger -t custom-init "已配置 Android TV 时间服务器"
-
-if [[ -n "$root_password" ]]; then
-  (echo "$root_password"; sleep 1; echo "$root_password") | passwd > /dev/null
-fi
- # Language
 uci set system.@system[0].timezone='CST-8'
 uci set system.@system[0].zonename='Asia/Shanghai'
 uci set system.@system[0].hostname='Ls'
-# uci set system.@system[0].lang='zh_CN'
-uci commit system
-
 uci set luci.main.lang="zh_cn"
-uci commit
+uci commit system
 
 # Configure LAN
 
@@ -45,43 +24,41 @@ uci commit
   uci commit network
 
   # uci set dhcp.lan.ignore="1"
-  uci set dhcp.lan.ra='relay'
-  uci set dhcp.lan.ndp='relay'
-  uci set dhcp.lan.dhcpv6='relay'
-  uci set dhcp.lan.ra_management='1'
-  uci set dhcp.lan.ra_default='1'
+  # uci set dhcp.lan.ra='relay'
+  # uci set dhcp.lan.ndp='relay'
+  # uci set dhcp.lan.dhcpv6='relay'
+  # uci set dhcp.lan.ra_management='1'
+  # uci set dhcp.lan.ra_default='1'
+  uci set dhcp.lan.ra='0'
+  uci set dhcp.lan.ndp='0'
+  uci set dhcp.lan.dhcpv6='0'
+  uci set dhcp.lan.ra_management='0'
+  uci set dhcp.lan.ra_default='0'
   uci commit dhcp
 
  
 # Configure WLAN
-# More options: https://openwrt.org/docs/guide-user/network/wifi/basic#wi-fi_interfaces
-# if [[ -n "$wlan_name" && -n "$wlan_password" && ${#wlan_password} -ge 8 ]]; then
+
   uci set wireless.@wifi-device[0].disabled= "0"
-  uci set wireless.@wifi-iface[0].network= "lan"
-  uci set wireless.@wifi-iface[0].mode="ap"
-  uci set wireless.@wifi-iface[0].country="CN"
   uci set wireless.@wifi-iface[0].ssid="5G"
   uci set wireless.@wifi-iface[0].hidden="1"
-  uci set wireless.@wifi-device[1].disabled="0"
-  uci set wireless.@wifi-iface[1].network= "lan"
-  uci set wireless.@wifi-iface[1].mode="ap"
-  uci set wireless.@wifi-iface[0].country="CN"
+  uci set wireless.@wifi-device[1].disabled= "0"
   uci set wireless.@wifi-iface[1].ssid="5G"
   uci set wireless.@wifi-iface[1].hidden="1"
   uci commit wireless
-# fi
- 
+
+
 # Configure PPPoE
-# More options: https://openwrt.org/docs/guide-user/network/wan/wan_interface_protocols#protocol_pppoe_ppp_over_ethernet
-if [[ -n "$pppoe_username" && -n "$pppoe_password" ]]; then
-  uci set network.wan=Ls
-  uci set network.wan.device="$wan_device"
-  uci set network.wan.proto="pppoe"
-  uci set network.wan.username="$pppoe_username"
-  uci set network.wan.password="$pppoe_password"
-  uci set network.wan.ipv6="auto"
-  uci commit network
-fi
+
+# if [[ -n "$pppoe_username" && -n "$pppoe_password" ]]; then
+#   uci set network.wan=Ls
+#   uci set network.wan.device="$wan_device"
+#   uci set network.wan.proto="pppoe"
+#   uci set network.wan.username="$pppoe_username"
+#   uci set network.wan.password="$pppoe_password"
+#   uci set network.wan.ipv6="auto"
+#   uci commit network
+# fi
 
 # Configure ttyd
 if [[ -n "$ttyd_auto_login" ]]; then
