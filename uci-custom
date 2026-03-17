@@ -41,7 +41,7 @@ uci commit
   uci set network.globals.ula_prefix=''
   uci commit network
 
-  # uci set dhcp.lan.ignore="1"
+  uci set dhcp.lan.ignore="1"
   # uci set dhcp.lan.ra='relay'
   # uci set dhcp.lan.ndp='relay'
   # uci set dhcp.lan.dhcpv6='relay'
