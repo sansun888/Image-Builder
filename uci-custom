@@ -42,11 +42,16 @@ uci commit
   uci commit network
 
   # uci set dhcp.lan.ignore="1"
-  uci set dhcp.lan.ra='relay'
-  uci set dhcp.lan.ndp='relay'
-  uci set dhcp.lan.dhcpv6='relay'
-  uci set dhcp.lan.ra_management='1'
-  uci set dhcp.lan.ra_default='1'
+  # uci set dhcp.lan.ra='relay'
+  # uci set dhcp.lan.ndp='relay'
+  # uci set dhcp.lan.dhcpv6='relay'
+  # uci set dhcp.lan.ra_management='1'
+  # uci set dhcp.lan.ra_default='1'
+  uci set dhcp.lan.ra='0'
+  uci set dhcp.lan.ndp='0'
+  uci set dhcp.lan.dhcpv6='0'
+  uci set dhcp.lan.ra_management='0'
+  uci set dhcp.lan.ra_default='0'
   uci commit dhcp
 
  
