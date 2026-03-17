@@ -39,23 +39,19 @@ uci set luci.main.lang="zh_cn"
 uci commit
 
 # Configure LAN
-# More options: https://openwrt.org/docs/guide-user/base-system/basic-networking
-# if [[ -n "$lan_ip_address" ]]; then
- # uci set network.lan.ipaddr="$lan_ip_address"
+
   uci set network.lan.ipaddr="192.168.2.3"
-   uci set dhcp.lan.ignore="1"
-  #uci set network.lan.dhcp.enable="0"
    uci set network.globals.ula_prefix=''
   uci commit network
 
-  uci set dhcp.lan.ignore="1"
+  # uci set dhcp.lan.ignore="1"
   uci set dhcp.lan.ra='relay'
   uci set dhcp.lan.ndp='relay'
   uci set dhcp.lan.dhcpv6='relay'
   uci set dhcp.lan.ra_management='1'
   uci set dhcp.lan.ra_default='1'
   uci commit dhcp
-# fi
+
  
 # Configure WLAN
 # More options: https://openwrt.org/docs/guide-user/network/wifi/basic#wi-fi_interfaces
