@@ -1,11 +1,6 @@
 # Beware! This script will be in /rom/etc/uci-defaults/ as part of the image.
 # Uncomment lines to apply:
 
-
-
-# root_password=""
-
-#
 # pppoe_username="123"
 # pppoe_password="456"
 # wan_device="eth0"
@@ -16,23 +11,11 @@
 # log potential errors
 exec >/tmp/setup.log 2>&1
 
-# 2. 解决 Android TV 网络连接问题
-# uci add dhcp domain
-# uci set "dhcp.@domain[-1].name=time.android.com"
-# uci set "dhcp.@domain[-1].ip=203.107.6.88"
-# uci commit dhcp
-# logger -t custom-init "已配置 Android TV 时间服务器"
-if [[ -n "$root_password" ]]; then
-  (echo "$root_password"; sleep 1; echo "$root_password") | passwd > /dev/null
-fi
- 
 uci set system.@system[0].timezone='CST-8'
 uci set system.@system[0].zonename='Asia/Shanghai'
 uci set system.@system[0].hostname='Ls'
-uci commit system
-
 uci set luci.main.lang="zh_cn"
-uci commit
+uci commit system
 
 # Configure LAN
 
@@ -67,15 +50,15 @@ uci commit
 
 # Configure PPPoE
 
-if [[ -n "$pppoe_username" && -n "$pppoe_password" ]]; then
-  uci set network.wan=Ls
-  uci set network.wan.device="$wan_device"
-  uci set network.wan.proto="pppoe"
-  uci set network.wan.username="$pppoe_username"
-  uci set network.wan.password="$pppoe_password"
-  uci set network.wan.ipv6="auto"
-  uci commit network
-fi
+# if [[ -n "$pppoe_username" && -n "$pppoe_password" ]]; then
+#   uci set network.wan=Ls
+#   uci set network.wan.device="$wan_device"
+#   uci set network.wan.proto="pppoe"
+#   uci set network.wan.username="$pppoe_username"
+#   uci set network.wan.password="$pppoe_password"
+#   uci set network.wan.ipv6="auto"
+#   uci commit network
+# fi
 
 # Configure ttyd
 if [[ -n "$ttyd_auto_login" ]]; then
