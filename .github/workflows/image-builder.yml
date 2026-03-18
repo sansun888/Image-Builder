@@ -59,7 +59,7 @@ jobs:
       run: |
         # Creator folders
         sudo mkdir -p $ROOT_DIRECTORY/files/etc/uci-defaults
-        sudo mkdir -p $ROOT_DIRECTORY/packages
+        # sudo mkdir -p $ROOT_DIRECTORY/packages
         # Copy custom setting file
         sudo cp $UCI_CUSTOM_FILE $ROOT_DIRECTORY/files/etc/uci-defaults
         # Copy packages list
