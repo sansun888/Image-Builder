@@ -1,8 +1,10 @@
 
 
-
+wget-ssl
+luci-i18n-ttyd-zh-cn
+luci-i18n-wol-zh-cn
 luci-i18n-zerotier-zh-cn
 luci-i18n-vlmcsd-zh-cn
-luci-i18n-my-dnshelper-zh-cn
+
 
 bash

@@ -23,17 +23,23 @@ uci commit system
    uci set network.globals.ula_prefix=''
   uci commit network
 
-  # uci set dhcp.lan.ignore="1"
-  # uci set dhcp.lan.ra='relay'
-  # uci set dhcp.lan.ndp='relay'
-  # uci set dhcp.lan.dhcpv6='relay'
-  # uci set dhcp.lan.ra_management='1'
-  # uci set dhcp.lan.ra_default='1'
-  uci set dhcp.lan.ra='0'
-  uci set dhcp.lan.ndp='0'
-  uci set dhcp.lan.dhcpv6='0'
-  uci set dhcp.lan.ra_management='0'
-  uci set dhcp.lan.ra_default='0'
+  # uci set dhcp.lan.ignore="0"
+  uci set dhcp.lan.ra='relay'
+  uci set dhcp.lan.ndp='relay'
+  uci set dhcp.lan.dhcpv6='relay'
+  uci set dhcp.lan.ra_management='1'
+  uci set dhcp.lan.ra_default='1'
+
+  uci set dhcp.wan.ra='relay'
+  uci set dhcp.wan.ndp='relay'
+  uci set dhcp.wan.dhcpv6='relay'
+  uci set dhcp.wan.ra_management='1'
+  uci set dhcp.wan.ra_default='1'
+  # uci set dhcp.lan.ra='0'
+  # uci set dhcp.lan.ndp='0'
+  # uci set dhcp.lan.dhcpv6='0'
+  # uci set dhcp.lan.ra_management='0'
+  # uci set dhcp.lan.ra_default='0'
   uci commit dhcp
 
  
@@ -42,7 +48,7 @@ uci commit system
   uci set wireless.@wifi-device[0].disabled= "0"
   uci set wireless.@wifi-iface[0].ssid="5G"
   uci set wireless.@wifi-iface[0].hidden="1"
-  uci set wireless.@wifi-device[1].disabled= "0"
+  uci set wireless.@wifi-device[1].disabled= "1"
   uci set wireless.@wifi-iface[1].ssid="5G"
   uci set wireless.@wifi-iface[1].hidden="1"
   uci commit wireless
