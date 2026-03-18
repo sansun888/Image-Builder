@@ -29,8 +29,9 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo apt update
-        sudo apt install -y build-essential libncurses-dev zstd zlib1g-dev gawk git gettext libssl-dev xsltproc rsync wget unzip python3 python3-pyelftools python3-setuptools
-
+        # sudo apt install -y build-essential libncurses-dev zstd zlib1g-dev gawk git gettext libssl-dev xsltproc rsync wget unzip python3 python3-pyelftools python3-setuptools
+        sudo apt install -y build-essential libncurses-dev zstd zlib1g-dev gawk git gettext libssl-dev xsltproc rsync wget unzip python3 python3-distutils
+        
     - name: Download and extract Image Builder
       run: |
         wget -O /tmp/imagebuilder $DOWNLOAD_URL
