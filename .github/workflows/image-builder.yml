@@ -12,7 +12,7 @@ env:
   PACKAGES_FOLDER: packages
   # ROOTFS_PARTSIZE: 512   # Reconfigure the rootfs partition size (for x86 build only), variable set in MB
   # DOWNLOAD_URL: https://downloads.immortalwrt.org/snapshots/targets/qualcommax/ipq807x/immortalwrt-imagebuilder-qualcommax-ipq807x.Linux-x86_64.tar.zst
-  DOWNLOAD_URL: https://downloads.openwrt.org/releases/25.12.0/targets/qualcommax/ipq807x/openwrt-imagebuilder-25.12.0-qualcommax-ipq807x.Linux-x86_64.tar.zst
+  DOWNLOAD_URL: https://downloads.openwrt.org/releases/24.10.5/targets/qualcommax/ipq807x/openwrt-imagebuilder-24.10.5-qualcommax-ipq807x.Linux-x86_64.tar.zst
   TZ: Asia/Shanghai
 
 jobs:
