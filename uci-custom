@@ -19,7 +19,7 @@ uci commit system
 
 # Configure LAN
 
-  uci set network.lan.ipaddr="192.168.2.3"
+  uci set network.lan.ipaddr="192.168.2.3/24"
    uci set network.globals.ula_prefix=''
   uci commit network
 
