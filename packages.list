@@ -6,4 +6,5 @@ luci-i18n-ttyd-zh-cn
 luci-i18n-wol-zh-cn
 luci-i18n-my-dnshelper-zh-cn
 wget-ssl
+libgmp10
 bash
